@@ -1,10 +1,14 @@
 import React from 'react';
 
-const VideoItem = (props) => {
+// props에서도 deconstructing이 가능하다.
+const VideoItem = ({video:{snippet}}) => {
     return (
         <li>
-            <img src={props.video.snippet.thumbnails.medium.url} alt="video thumnail"/>
-            <h1>{props.video.snippet.title}</h1>
+            <img src={snippet.thumbnails.medium.url} alt="video thumnail"/>
+            <div>
+                <p>{snippet.title}</p>
+                <p>{snippet.channelTitle}</p>
+            </div>
         </li>
       );
 };
