@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import './app.css';
 import Header from './components/header/header';
 import Main from './components/main/main';
@@ -7,9 +7,13 @@ import VideoList from './components/video_list/video_list';
 
 function App({youtube}) {
   const [videos, setVideos] = useState([]);
-  
+  const[select, setSelect] = useState(null);
+
+
   const search = query => {
-   youtube
+  setSelect(null);
+
+  youtube
    .search(query) //
    .then(videos => setVideos(videos))
   };
@@ -22,13 +26,24 @@ function App({youtube}) {
 
   return (
     <div>
-      <Header onSearch={search}/>
-      <p>test</p>
+      <Header onSearch={search} />
       {/* <VideoList videos={videos}/> */}
       {/* React Router로 렌더링하는 컴포넌트에 prop 전달하기 */}
-      <Route path='/video_list' render={() => <VideoList videos={videos} />}/>
-      <Route exact path='/main' component={Main}/>
+      
+      {/* <button>
+        <Link to="/video_list">video_list</Link>
+      </button> */}
+
+      {/* <button>
+        <Link to="/main">main</Link>
+      </button> */}
+
+      <Route exact path='/' render={() => <Main videos={videos} />} />
+      <div>
+        <Route path='/video_list' render={() => <VideoList videos={videos} onVideoClick={select} display={select ? 'list' : 'grid'} />}/>
+      </div>
       <footer></footer>
+
     </div>
   );
 }

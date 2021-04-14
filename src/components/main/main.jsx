@@ -1,11 +1,13 @@
 import React from 'react';
 import Header from '../header/header';
+import VideoList from '../video_list/video_list';
 
-const Main = (props) => {
+const Main = ({videos}) => {
         return(
             <section>
                 <ul className='videolist'>
-                    <div>map- * li * 16 + (infinity)</div>
+                    <VideoList videos={videos} />
+                    hello
                 </ul>
             </section>
         )
