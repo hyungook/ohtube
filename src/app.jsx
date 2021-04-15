@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import './app.css';
 import Header from './components/header/header';
 import Main from './components/main/main';
+import VideoDetail from './components/video_detail/video_detail';
 import VideoList from './components/video_list/video_list';
 
 function App({youtube}) {
@@ -39,10 +40,15 @@ function App({youtube}) {
       </button> */}
 
       <Route exact path='/' render={() => <Main videos={videos} />} />
+      {select && (
+      <div>
+         <VideoDetail video={select} />
+      </div>
+    )}
       <div>
         <Route path='/video_list' render={() => <VideoList videos={videos} onVideoClick={select} display={select ? 'list' : 'grid'} />}/>
       </div>
-      <footer></footer>
+      <footer> &copy; 2021 OHTUBE All Right Reserved</footer>
 
     </div>
   );

@@ -7,7 +7,6 @@ const Main = ({videos}) => {
             <section>
                 <ul className='videolist'>
                     <VideoList videos={videos} />
-                    hello
                 </ul>
             </section>
         )
