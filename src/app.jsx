@@ -8,21 +8,25 @@ import VideoList from './components/video_list/video_list';
 
 function App({youtube}) {
   const [videos, setVideos] = useState([]);
-  const[select, setSelect] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
-
-  const search = query => {
-  setSelect(null);
-
-  youtube
-   .search(query) //
-   .then(videos => setVideos(videos))
+  const selectVideo = (video) => {
+    setSelectedVideo(video);
+    // console.log(video)
   };
 
-  useEffect(() => {
+  const search = (video) => {
+    setSelectedVideo(null);
+
     youtube
-    .mostPopular() //
+    .search(video) //
     .then(videos => setVideos(videos))
+    };
+
+    useEffect(() => {
+      youtube
+      .mostPopular() //
+      .then(videos => setVideos(videos))
   },[]);
 
   return (
@@ -32,21 +36,24 @@ function App({youtube}) {
       {/* React Router로 렌더링하는 컴포넌트에 prop 전달하기 */}
       
       {/* <button>
-        <Link to="/video_list">video_list</Link>
-      </button> */}
+        <Link to="/video_list">movie</Link>
+      </button>
 
-      {/* <button>
-        <Link to="/main">main</Link>
+      <button>
+        <Link to="/main">music</Link>
       </button> */}
 
       <Route exact path='/' render={() => <Main videos={videos} />} />
-      {select && (
+
+      {/* {selectedVideo && (
       <div>
-         <VideoDetail video={select} />
+         <VideoDetail video={selectedVideo} />
       </div>
-    )}
+    )} */}
+
       <div>
-        <Route path='/video_list' render={() => <VideoList videos={videos} onVideoClick={select} display={select ? 'list' : 'grid'} />}/>
+      <VideoList videos={videos} clickVideo={selectVideo} display={selectedVideo ? 'list' : 'grid'} />
+        {/* <Route path='/video_list' render={() => <VideoList videos={videos} clickVideo={selectVideo} display={selectedVideo ? 'list' : 'grid'} />}/> */}
       </div>
       <footer> &copy; 2021 OHTUBE All Right Reserved</footer>
 
