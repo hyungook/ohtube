@@ -32,7 +32,7 @@ const Header = ({onSearch}) => {
             type="search" placeholder="Search..." onKeyPress={onKeyPress} />
             <button type="submit" onClick={onClick}>
                 {/* <img src="" alt="search" /> */}
-                <Link to="/video_list">search</Link>
+                <Link to="/">search</Link>
             </button>
         </header>
     );
