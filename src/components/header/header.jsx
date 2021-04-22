@@ -1,14 +1,21 @@
 import React, { useRef } from 'react';
 import { Route, Link } from 'react-router-dom';
 
-const Header = ({onSearch}) => {
+const Header = ({onSearch,selectVideo}) => {
     const inputRef = useRef();
 
+    const clear = () => {
+        selectVideo(null);
+        onSearch(null);
+    };
+    
     const handleSearch = () => {
         const value = inputRef.current.value;
         console.log(value);
         onSearch(value);
         inputRef.current.value="";
+
+        selectVideo(null);
     }
     const onClick = () => {
         // console.log('click');
@@ -21,11 +28,19 @@ const Header = ({onSearch}) => {
         }
     };
 
+    const myVideo = (e) => {
+        selectVideo(null);
+        
+        const buttonValue = e.target.value;
+        console.log(buttonValue);
+        onSearch(buttonValue);
+    };
+
     return (
         <header>
             <div>
                 <img src="" alt="logo" />
-                <h1><Link to="/">ohtube</Link></h1>
+                <h1 onClick={clear}><Link to="/">ohtube</Link></h1>
             </div>
             <input 
             ref={inputRef}
@@ -34,6 +49,10 @@ const Header = ({onSearch}) => {
                 {/* <img src="" alt="search" /> */}
                 <Link to="/">search</Link>
             </button>
+            <br />
+            <button onClick={myVideo} value={'에센셜'}>에센셜</button>
+            <button onClick={myVideo} value={'드림코딩'}>드림코딩</button>
+            <button onClick={myVideo} value={'노마드코드'}>노마드코드</button>
         </header>
     );
 };

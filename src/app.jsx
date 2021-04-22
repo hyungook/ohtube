@@ -14,6 +14,7 @@ function App({youtube}) {
     setSelectedVideo(video);
   };
 
+
   const search = (video) => {
     setSelectedVideo(null);
 
@@ -26,21 +27,21 @@ function App({youtube}) {
       youtube
       .mostPopular() //
       .then(videos => setVideos(videos))
+      setSelectedVideo(null);
   },[]);
 
   return (
     <div>
-      <Header onSearch={search} />
+      <Header onSearch={search} selectVideo={selectVideo} />
       {/* <VideoList videos={videos}/> */}
       {/* React Router로 렌더링하는 컴포넌트에 prop 전달하기 */}
       {/* <Route exact path='/' render={() => <Main videos={videos} />} /> */}
 
-      {/* {selectedVideo && (
+      {selectedVideo && (
         <div>
-          <div>hello</div>
           <VideoDetail video={selectedVideo} />
         </div>
-      )} */}
+      )}
 
       <div>
         <VideoList videos={videos} clickVideo={selectVideo} />

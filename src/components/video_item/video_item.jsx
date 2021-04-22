@@ -6,8 +6,7 @@ const VideoItem = ({video, video:{snippet}, clickVideo}) => {
     // 비디오 클릭 시 해당 비디오 재생하는 함수
     const addVideo = () => {
         // console.log(video);
-        // clickVideo(video);
-        // console.log(`item : ${clickVideo}`)
+        clickVideo(video);
     };
 
     return (
