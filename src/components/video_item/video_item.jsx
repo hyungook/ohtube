@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './video_item.module.css';
 
 // props에서도 deconstructing이 가능하다.
 const VideoItem = ({video, video:{snippet}, clickVideo}) => {
@@ -10,7 +11,7 @@ const VideoItem = ({video, video:{snippet}, clickVideo}) => {
     };
 
     return (
-        <li onClick={addVideo}>
+        <li className={styles.videoLi} onClick={addVideo}>
             <img src={snippet.thumbnails.medium.url} alt="video thumnail"/>
             <div>
                 <p>{snippet.title}</p>

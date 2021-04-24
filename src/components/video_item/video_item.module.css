@@ -1,0 +1,7 @@
+@import "./../../reset.css";
+
+.videoLi {
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
