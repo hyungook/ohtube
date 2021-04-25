@@ -46,7 +46,7 @@ function App({youtube}) {
         <VideoList videos={videos} clickVideo={selectVideo} display={ selectedVideo ? 'list' : 'grid'} />
       </div>
 
-      <footer> &copy; 2021 OHTUBE All Right Reserved</footer>
+      {/* <footer> &copy; 2021 OHTUBE All Right Reserved</footer> */}
 
     </div>
   );
