@@ -12,9 +12,9 @@ const VideoItem = ({video, video:{snippet}, clickVideo}) => {
 
     return (
         <li className={styles.videoLi} onClick={addVideo}>
-            <img src={snippet.thumbnails.medium.url} alt="video thumnail"/>
-            <div>
-                <p>{snippet.title}</p>
+            <img src={snippet.thumbnails.medium.url} className={styles.video} alt="video thumnail"/>
+            <div className={styles.info}>
+                <h4>{snippet.title}</h4>
                 <p>{snippet.channelTitle}</p>
             </div>
         </li>

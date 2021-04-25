@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.videoList {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.VideoDetail {
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+}

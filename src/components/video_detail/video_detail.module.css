@@ -1,0 +1,49 @@
+@import "./../../reset.css";
+
+.videoSection {
+  width: 100%;
+  margin-top: 136px;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #ebebeb;
+  /* background-color: aqua; */
+}
+.videoSection iframe {
+  width: 100%;
+  height: 240px;
+}
+
+.detailInfo {
+  width: 100%;
+  /* display: flex; */
+  display: block;
+  /* flex-wrap: wrap; */
+  box-sizing: border-box;
+
+  word-break: break-all;
+
+  padding: 0 8px;
+}
+
+.detailInfo h2 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: #5f6368;
+}
+
+.detailInfo h3 {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  /* color: #70757a; */
+  color: tomato;
+}
+
+.detailInfo pre {
+  width: 100%;
+  font-size: 0.7rem;
+  margin-bottom: 2px;
+  color: #70757a;
+  word-break: break-all;
+  white-space: pre-wrap;
+}

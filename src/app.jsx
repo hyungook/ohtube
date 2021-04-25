@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Route, Link } from 'react-router-dom';
-import './app.css';
+import styles from './app.module.css';
 import Header from './components/header/header';
 import VideoDetail from './components/video_detail/video_detail';
 import VideoList from './components/video_list/video_list';
@@ -37,12 +37,12 @@ function App({youtube}) {
       {/* <Route exact path='/main' render={() => <Main />} /> */}
 
       {selectedVideo && (
-        <div>
+        <div className={styles.VideoDetail}>
           <VideoDetail video={selectedVideo} />
         </div>
       )}
 
-      <div>
+      <div className={styles.videoList}>
         <VideoList videos={videos} clickVideo={selectVideo} display={ selectedVideo ? 'list' : 'grid'} />
       </div>
 

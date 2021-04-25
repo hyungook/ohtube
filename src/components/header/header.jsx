@@ -5,6 +5,7 @@ import {data} from '../../Data/data';
 const Header = ({onSearch,selectVideo}) => {
     const inputRef = useRef();
     const shortCutIcon = useRef();
+    const shortCutBtn = useRef();
     // shortCut 확인을 위한 상태
     const [sc, setSc] = useState(true);
 
@@ -39,6 +40,7 @@ const Header = ({onSearch,selectVideo}) => {
         // const buttonValue = e.target.value;
         let elem = e.target;
 
+        // 이벤트 위임(delegation)
         while (!elem.classList.contains("shortCut")) {
             elem = elem.parentNode;
             if (elem.nodeName == "BODY") {
@@ -46,27 +48,29 @@ const Header = ({onSearch,selectVideo}) => {
               return;
             }
           }
-          console.log(elem);
-          currentMenu = elem;
-
-          console.log(currentMenu.value);
-
-        // console.log(buttonValue);
-        // onSearch(buttonValue);
+          let elemText = elem.innerText;
+        //   console.log(elem);
+        //   console.log(elemText);
+    
+          onSearch(elemText);
+          showShortCut();
     };
 
     const showShortCut =() => {
+        const SCtn = shortCutBtn.current;
         const SBtn = shortCutIcon.current.style;
         // console.log(SBtn);
-        // if(sc) {
-        //     console.log('ok')
-        //     SBtn.display=`block`;
-        //     setSc(false);
-        // } else {
-        //     console.log('no');
-        //     SBtn.display=`none`;
-        //     setSc(true);
-        // }
+        if(sc) {
+            // console.log('ok');
+            SCtn.classList.add(`${styles.rotation}`);
+            SBtn.display=`block`;
+            setSc(false);
+        } else {
+            // console.log('no');
+            SCtn.classList.remove(`${styles.rotation}`);
+            SBtn.display=`none`;
+            setSc(true);
+        }
     };
 
     return (
@@ -84,8 +88,8 @@ const Header = ({onSearch,selectVideo}) => {
                     </button>
                 </div>
             </section>
-            <div className={styles.shortCut} onClick={showShortCut}>
-                <button className={styles.shortCutBtn}>+</button>
+            <div className={styles.shortCut}>
+                <button className={styles.shortCutBtn} onClick={showShortCut} ref={shortCutBtn}>+</button>
                 <div className={styles.shortCutBox} ref={shortCutIcon} >
                     <ul className={styles.shortCutUl} >
                         {/* <li>
@@ -101,9 +105,10 @@ const Header = ({onSearch,selectVideo}) => {
                             <button onClick={myVideo} value={'노마드코드'}>노마드코드</button>
                         </li> */}
                         {data.map((data) => {
-                            return <li onClick={myVideo} className={`shortCut`} value={data.text}>
-                                    <div>
-                                        <img src={`${data["image"]}`} alt={data.alt}></img>
+                            return <li onClick={myVideo} className={`${styles.shortCutLi} shortCut`} value={data.value} >
+                                    <div className={styles.liImg}>
+                                        {/* <img src={`${data["image"]}`} alt={data.alt}></img> */}
+                                        <img src={`${data["image"]}`}></img>
                                     </div>
                                     {/* <p>{data["text"]}</p> */}
                                     <p>{data.text}</p>
