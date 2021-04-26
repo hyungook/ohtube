@@ -73,7 +73,6 @@
   z-index: 10;
 }
 .shortCutBtn {
-  position: absolute;
   position: fixed;
   top: 14px;
   right: 14px;
@@ -81,11 +80,30 @@
   height: 40px;
   font-size: 2.4rem;
   outline: none;
+  box-sizing: border-box;
 
   border-radius: 50%;
   color: #dcdcdc;
   z-index: 10;
+
+  transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
+
+  /* animation: rotation2;
+  animation-delay: 0;
+  animation-duration: 1s;
+  animation-direction: inherit;
+  animation-timing-function: cubic-bezier(0.33, 0.78, 0.41, 1);
+  animation-fill-mode: forwards; */
 }
+/* @keyframes rotation2 {
+  0% {
+    transform: rotate(135deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+} */
+
 .shortCutBtn:hover,
 .shortCutBtn:focus {
   color: rgb(89, 89, 89);

@@ -9,7 +9,7 @@ const Header = ({onSearch,selectVideo}) => {
     // shortCut 확인을 위한 상태
     const [sc, setSc] = useState(true);
 
-    let currentMenu;
+    const [scMenu, setScMenu] = useState();
 
     const clear = () => {
         selectVideo(null);
@@ -49,6 +49,7 @@ const Header = ({onSearch,selectVideo}) => {
             }
           }
           let elemText = elem.innerText;
+        // 상태관리로 value 값 전달
         //   console.log(elem);
         //   console.log(elemText);
     
@@ -60,14 +61,17 @@ const Header = ({onSearch,selectVideo}) => {
         const SCtn = shortCutBtn.current;
         const SBtn = shortCutIcon.current.style;
         // console.log(SBtn);
+
+        SCtn.classList.toggle(`${styles.rotation}`);
+
         if(sc) {
             // console.log('ok');
-            SCtn.classList.add(`${styles.rotation}`);
+            // SCtn.classList.add(`${styles.rotation}`);
             SBtn.display=`block`;
             setSc(false);
         } else {
             // console.log('no');
-            SCtn.classList.remove(`${styles.rotation}`);
+            // SCtn.classList.remove(`${styles.rotation}`);
             SBtn.display=`none`;
             setSc(true);
         }
@@ -92,18 +96,7 @@ const Header = ({onSearch,selectVideo}) => {
                 <button className={styles.shortCutBtn} onClick={showShortCut} ref={shortCutBtn}>+</button>
                 <div className={styles.shortCutBox} ref={shortCutIcon} >
                     <ul className={styles.shortCutUl} >
-                        {/* <li>
-                            <img src="" alt="thumbnail" />
-                            에센셜</button>
-                        </li>
-                        <li>
-                            <img src="" alt="thumbnail" />
-                            <button onClick={myVideo} value={'드림코딩'}>드림코딩</button>
-                        </li>
-                        <li>
-                            <img src="" alt="thumbnail" />
-                            <button onClick={myVideo} value={'노마드코드'}>노마드코드</button>
-                        </li> */}
+                        
                         {data.map((data) => {
                             return <li onClick={myVideo} className={`${styles.shortCutLi} shortCut`} value={data.value} >
                                     <div className={styles.liImg}>
