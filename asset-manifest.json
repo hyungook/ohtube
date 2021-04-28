@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ohtube/static/css/main.b45a3781.chunk.css",
+    "main.js": "/ohtube/static/js/main.420038d9.chunk.js",
+    "main.js.map": "/ohtube/static/js/main.420038d9.chunk.js.map",
+    "runtime-main.js": "/ohtube/static/js/runtime-main.8501eb4c.js",
+    "runtime-main.js.map": "/ohtube/static/js/runtime-main.8501eb4c.js.map",
+    "static/js/2.3d7d9968.chunk.js": "/ohtube/static/js/2.3d7d9968.chunk.js",
+    "static/js/2.3d7d9968.chunk.js.map": "/ohtube/static/js/2.3d7d9968.chunk.js.map",
+    "index.html": "/ohtube/index.html",
+    "static/css/main.b45a3781.chunk.css.map": "/ohtube/static/css/main.b45a3781.chunk.css.map",
+    "static/js/2.3d7d9968.chunk.js.LICENSE.txt": "/ohtube/static/js/2.3d7d9968.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8501eb4c.js",
+    "static/js/2.3d7d9968.chunk.js",
+    "static/css/main.b45a3781.chunk.css",
+    "static/js/main.420038d9.chunk.js"
+  ]
+}
