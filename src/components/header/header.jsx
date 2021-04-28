@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 import styles from './header.module.css';
 import {data} from '../../Data/data';
 
+// const img = process.env.PUBLIC_URL + '/images/';
+
 const Header = ({onSearch,selectVideo}) => {
     const inputRef = useRef();
     const shortCutIcon = useRef();
@@ -81,7 +83,8 @@ const Header = ({onSearch,selectVideo}) => {
         <header className={styles.header}>
             <section className={styles.headerSection}>
                 <div className={styles.logo} onClick={clear}>
-                    <img src="" alt="logo" />
+                    <img className={styles.buttonImg} src="/images/ohtube.svg" alt="logo" />
+                    {/* <img className={styles.buttonImg} src={`${img}/ohtube.svg`} alt="logo" /> */}
                 </div>
                 <div className={styles.inputSection}>
                     <input className={styles.searchInput} ref={inputRef}
@@ -100,8 +103,7 @@ const Header = ({onSearch,selectVideo}) => {
                         {data.map((data) => {
                             return <li onClick={myVideo} className={`${styles.shortCutLi} shortCut`} value={data.value} >
                                     <div className={styles.liImg}>
-                                        {/* <img src={`${data["image"]}`} alt={data.alt}></img> */}
-                                        <img src={`${data["image"]}`}></img>
+                                        {/* <img src="" alt="search" /> */}
                                     </div>
                                     {/* <p>{data["text"]}</p> */}
                                     <p>{data.text}</p>

@@ -23,4 +23,10 @@ export const data =[
         text: "조코딩",
         value: `조코딩`,
     },
+    {
+        image: "",
+        alt: "thumbnail",
+        text: "잇섭",
+        value: `잇섭`,
+    },
 ];

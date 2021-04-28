@@ -31,9 +31,20 @@
   width: 120px;
   height: 40px;
   margin-bottom: 14px;
+  object-fit: cover;
 
-  background-color: red;
+  /* background-color: red; */
 }
+.logo:hover,
+.logo:focus {
+  cursor: pointer;
+}
+
+.buttonImg {
+  height: 100%;
+  /* padding: 0.5em 0.2em; */
+}
+
 .inputSection {
   display: flex;
   justify-content: space-between;
@@ -59,6 +70,11 @@
   color: #80868b;
   border-left: 2px solid #ebebeb;
   outline: none;
+  transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
+}
+.searchBtn:hover,
+.searchBtn:focus {
+  color: #515659;
 }
 
 /* shortCut */
@@ -71,6 +87,7 @@
   right: 0;
   outline: none;
   z-index: 10;
+  transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
 }
 .shortCutBtn {
   position: fixed;
@@ -128,7 +145,7 @@
   width: 100%;
   height: 100%;
 
-  padding: 0 20px;
+  padding: 0 10px;
   outline: none;
   /* flex-direction: row; */
   /* flex-wrap: wrap; */
@@ -138,10 +155,21 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 8px;
   box-sizing: border-box;
 
   border-bottom: 1px solid #ebebeb;
+  transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
+}
+
+.shortCutLi:hover,
+.shortCutLi:focus {
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
+  box-shadow: 0 1px 3px 0 rgb(64 60 67 / 26%);
+  border-radius: 50px;
+  z-index: 10;
 }
 
 .liImg {
@@ -174,5 +202,46 @@
   100% {
     transform: rotate(135deg);
     color: rgb(89, 89, 89);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .shortCutBox {
+    width: 40vw;
+    box-shadow: -300px 0px 0 200px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* .header {
+  } */
+
+  .headerSection {
+    padding: 22px 0;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .logo {
+    margin: 0;
+  }
+  .inputSection {
+    width: 80%;
+    margin-right: 40px;
+  }
+  .shortCutBtn {
+    top: 22px;
+    right: 18px;
+  }
+  .shortCutBox {
+    width: 30vw;
+    box-shadow: -300px 0px 0 1200px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .shortCutBox {
+    width: 20vw;
+    box-shadow: -300px 0px 0 1200px rgba(0, 0, 0, 0.5);
   }
 }

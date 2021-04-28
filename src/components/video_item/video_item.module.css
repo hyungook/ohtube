@@ -15,6 +15,16 @@
 
   /* background-color: wheat; */
   background-color: #fff;
+  transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
+}
+.videoLi:hover,
+.videoLi:focus {
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
+  box-shadow: 0 2px 10px 1px rgb(64 60 67 / 34%);
+  z-index: 10;
+  border-radius: 10px;
 }
 
 .video {
@@ -36,4 +46,21 @@
 .info p {
   font-size: 0.8rem;
   color: #70757a;
+}
+
+@media screen and (min-width: 768px) {
+  .videoLi {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .videoLi {
+    width: 33.33%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .videoLi {
+    width: 25%;
+  }
 }
