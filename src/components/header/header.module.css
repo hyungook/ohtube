@@ -80,9 +80,6 @@
 /* shortCut */
 .shortCut {
   position: fixed;
-  /* display: block; */
-  /* width: 100vw; */
-  /* height: 100vh; */
   top: 0;
   right: 0;
   outline: none;
@@ -104,22 +101,7 @@
   z-index: 10;
 
   transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
-
-  /* animation: rotation2;
-  animation-delay: 0;
-  animation-duration: 1s;
-  animation-direction: inherit;
-  animation-timing-function: cubic-bezier(0.33, 0.78, 0.41, 1);
-  animation-fill-mode: forwards; */
 }
-/* @keyframes rotation2 {
-  0% {
-    transform: rotate(135deg);
-  }
-  100% {
-    transform: rotate(0);
-  }
-} */
 
 .shortCutBtn:hover,
 .shortCutBtn:focus {
@@ -127,17 +109,19 @@
 }
 
 .shortCutBox {
-  display: none;
-
+  visibility: hidden;
   position: fixed;
   width: 70vw;
   height: 100vh;
   top: 0px;
   right: 0px;
 
+  transform: translateX(70vw);
+
   padding: 68px 0 0 0;
   background-color: #fff;
-  box-shadow: -200px 0px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
+  opacity: 0;
   outline: none;
 }
 
@@ -159,7 +143,7 @@
   box-sizing: border-box;
 
   border-bottom: 1px solid #ebebeb;
-  transition: all 0.5s cubic-bezier(0.33, 0.78, 0.41, 1);
+  transform: rotate(0);
 }
 
 .shortCutLi:hover,
@@ -186,29 +170,28 @@
 }
 
 .rotation {
-  animation: rotation;
-  animation-delay: 0;
-  animation-duration: 1s;
-  animation-direction: inherit;
-  animation-timing-function: cubic-bezier(0.33, 0.78, 0.41, 1);
-  animation-fill-mode: forwards;
+  transform: rotate(135deg);
+  animation: btnOpacity;
 }
-
-@keyframes rotation {
+@keyframes btnOpacity {
   0% {
-    transform: rotate(0);
     color: #dcdcdc;
   }
   100% {
-    transform: rotate(135deg);
     color: rgb(89, 89, 89);
   }
+}
+
+.showBox {
+  visibility: visible;
+  transform: translateX(0vw);
+  opacity: 1;
+  box-shadow: -300px 0px 0 1400px rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (min-width: 768px) {
   .shortCutBox {
     width: 40vw;
-    box-shadow: -300px 0px 0 200px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -235,13 +218,11 @@
   }
   .shortCutBox {
     width: 30vw;
-    box-shadow: -300px 0px 0 1200px rgba(0, 0, 0, 0.5);
   }
 }
 
 @media screen and (min-width: 1280px) {
   .shortCutBox {
     width: 20vw;
-    box-shadow: -300px 0px 0 1200px rgba(0, 0, 0, 0.5);
   }
 }

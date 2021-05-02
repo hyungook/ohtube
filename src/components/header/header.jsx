@@ -1,15 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import styles from './header.module.css';
 import {data} from '../../Data/data';
 
-// const img = process.env.PUBLIC_URL + '/images/';
+const img = process.env.PUBLIC_URL + '/images/';
 
 const Header = ({onSearch,selectVideo}) => {
     const inputRef = useRef();
     const shortCutIcon = useRef();
     const shortCutBtn = useRef();
     // shortCut 확인을 위한 상태
-    const [sc, setSc] = useState(true);
+    // const [sc, setSc] = useState(true);
 
     const [scMenu, setScMenu] = useState();
 
@@ -26,10 +26,12 @@ const Header = ({onSearch,selectVideo}) => {
 
         selectVideo(null);
     }
-    const onClick = () => {
+
+    const onClick = useCallback(() => {
         // console.log('click');
         handleSearch();
-    };
+    },[]);
+
     const onKeyPress = (event) => {
         // console.log('keypress');
         if(event.key === 'Enter') {
@@ -61,30 +63,33 @@ const Header = ({onSearch,selectVideo}) => {
 
     const showShortCut =() => {
         const SCtn = shortCutBtn.current;
-        const SBtn = shortCutIcon.current.style;
+        const SBtn = shortCutIcon.current;
+        // const SBtn = shortCutIcon.current.style;
         // console.log(SBtn);
 
+        // ShortCut SHow & none
         SCtn.classList.toggle(`${styles.rotation}`);
+        SBtn.classList.toggle(`${styles.showBox}`);
 
-        if(sc) {
-            // console.log('ok');
-            // SCtn.classList.add(`${styles.rotation}`);
-            SBtn.display=`block`;
-            setSc(false);
-        } else {
-            // console.log('no');
-            // SCtn.classList.remove(`${styles.rotation}`);
-            SBtn.display=`none`;
-            setSc(true);
-        }
+        // if(sc) {
+        //     // console.log('ok');
+        //     // SCtn.classList.add(`${styles.rotation}`);
+        //     // SBtn.display=`block`;
+        //     setSc(false);
+        // } else {
+        //     // console.log('no');
+        //     // SCtn.classList.remove(`${styles.rotation}`);
+        //     // SBtn.display=`none`;
+        //     setSc(true);
+        // }
     };
 
     return (
         <header className={styles.header}>
             <section className={styles.headerSection}>
                 <div className={styles.logo} onClick={clear}>
-                    <img className={styles.buttonImg} src="/images/ohtube.svg" alt="logo" />
-                    {/* <img className={styles.buttonImg} src={`${img}/ohtube.svg`} alt="logo" /> */}
+                    {/* <img className={styles.buttonImg} src="/images/ohtube.svg" alt="logo" /> */}
+                    <img className={styles.buttonImg} src={`${img}/ohtube.svg`} alt="logo" />
                 </div>
                 <div className={styles.inputSection}>
                     <input className={styles.searchInput} ref={inputRef}
